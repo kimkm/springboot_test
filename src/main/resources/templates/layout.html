@@ -5,10 +5,14 @@
   <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
+
 <header th:replace="fragments/header :: header"></header>
+
 <main>
   <div th:text="${content}"></div>
 </main>
+
 <footer th:replace="fragments/footer :: footer"></footer>
+
 </body>
 </html>
