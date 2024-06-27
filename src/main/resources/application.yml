@@ -44,3 +44,13 @@ spring:
  messages:
   basename: messages/messages
   encoding: UTF-8
+
+--- #정적페이지
+spring:
+ web:
+  resources:
+   static-locations: classpath:/static/
+
+--- #mybatis
+mybatis:
+ mapper-locations: classpath:/mapper/**/*.xml

@@ -25,7 +25,7 @@ public class TestController {
 
         model.addAttribute("users", us);
 
-        return "javascript";
+        return "/th/javascript";
     }
 
     @GetMapping("layout")
@@ -33,7 +33,7 @@ public class TestController {
         model.addAttribute("title","thymeleaf_title...");
         model.addAttribute("content","thymeleaf_content...");
 
-        return "layout";
+        return "th/layout";
 
     }
 
@@ -52,21 +52,11 @@ public class TestController {
         model.addAttribute("users", list);
         model.addAttribute("userMap", map);
 
-        return "variable";
-    }
-
-    @Data
-    static class User {
-        private String username;
-        private int age;
-        public User(String username, int age) {
-            this.username = username;
-            this.age = age;
-        }
+        return "/th/variable";
     }
 
 
-    // Spring Boot 3.0 이상: 직저
+    // Spring Boot 3.0 이상: 직접.
     @GetMapping("/basic-objects")
     public String basicObjects2(
             Model model,
@@ -77,7 +67,7 @@ public class TestController {
         model.addAttribute("request", request);
         model.addAttribute("response", response);
         model.addAttribute("servletContext", request.getServletContext());
-        return "basic-objects";
+        return "/th/basic-objects";
     }
 
     @Component("helloBean")
@@ -90,20 +80,56 @@ public class TestController {
     @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
-        return "date";
+        return "/th/date";
     }
 
     @GetMapping("/operation")
     public String operation(Model model) {
         model.addAttribute("nullData", null);
         model.addAttribute("data", "Spring!");
-        return "operation";
+        return "/th/operation";
     }
 
     @GetMapping("/each")
     public String each(Model model) {
         addUsers(model);
-        return "each";
+        return "/th/each";
+    }
+
+    @GetMapping("/condition")
+    public String contition(Model model) {
+        addUsers(model);
+        return "/th/condition";
+    }
+
+    @GetMapping("/comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "Spring!");
+        return "/th/comments";
+    }
+
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUsers(model);
+        return "/th/block";
+    }
+
+    @GetMapping("/text-basic")
+    public String textBasic(Model model) {
+        model.addAttribute("data", "Hello <b>Spring!</b>");
+        return "/th/text-basic";
+    }
+
+
+
+    @Data
+    static class User {
+        private String username;
+        private int age;
+        public User(String username, int age) {
+            this.username = username;
+            this.age = age;
+        }
     }
 
     private void addUsers(Model model) {
@@ -117,27 +143,5 @@ public class TestController {
         model.addAttribute("users", users);
     }
 
-    @GetMapping("/condition")
-    public String contition(Model model) {
-        addUsers(model);
-        return "condition";
-    }
 
-    @GetMapping("/comments")
-    public String comments(Model model) {
-        model.addAttribute("data", "Spring!");
-        return "comments";
-    }
-
-    @GetMapping("/block")
-    public String block(Model model) {
-        addUsers(model);
-        return "block";
-    }
-
-    @GetMapping("/text-basic")
-    public String textBasic(Model model) {
-        model.addAttribute("data", "Hello <b>Spring!</b>");
-        return "text-basic";
-    }
 }

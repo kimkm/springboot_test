@@ -20,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(myInterceptor)
                 .addPathPatterns("/**") // 모든 URL 패턴에 대해 인터셉터 적용
-                .excludePathPatterns("/login", "/logout","/index.html","/"); // 특정 URL 패턴 제외
+                .excludePathPatterns("/login", "/logout","/index.html","/css/*","/js/*"); // 특정 URL 패턴 제외
     }
 
     @Bean
