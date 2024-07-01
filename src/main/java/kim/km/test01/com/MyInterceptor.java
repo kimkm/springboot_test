@@ -14,8 +14,8 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override // 요청 전 처리 로직
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HandlerMethod hd = (HandlerMethod) handler;
-        System.out.println(hd.getBeanType().getSimpleName() +" : "+ hd.getMethod().getName() + "실행 전 실행되는 인터셉터--------------");
+   //     HandlerMethod hd = (HandlerMethod) handler;
+   //     System.out.println(hd.getBeanType().getSimpleName() +" : "+ hd.getMethod().getName() + "실행 전 실행되는 인터셉터--------------");
 
 //        HttpSession session = request.getSession();
 //        MemberVO loginInfo = (MemberVO)session.getAttribute("loginInfo");
@@ -30,14 +30,14 @@ public class MyInterceptor implements HandlerInterceptor {
 
     @Override // 요청 후 처리 로직
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        HandlerMethod hd = (HandlerMethod) handler;
-        System.out.println(hd.getBeanType().getSimpleName() +" : "+ hd.getMethod().getName() + "실행 후 실행되는 인터셉터==============");
+      //  HandlerMethod hd = (HandlerMethod) handler;
+     //   System.out.println(hd.getBeanType().getSimpleName() +" : "+ hd.getMethod().getName() + "실행 후 실행되는 인터셉터==============");
     }
 
     @Override // 뷰가 렌더링된 후 처리 로직
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        HandlerMethod hd = (HandlerMethod) handler;
-        System.out.println(hd.getBeanType().getSimpleName() +" : "+ hd.getMethod().getName() + "이후 뷰 렌더링 후 실행되는 인터셉터+++++++++++++++++++");
+    //    HandlerMethod hd = (HandlerMethod) handler;
+     //   System.out.println(hd.getBeanType().getSimpleName() +" : "+ hd.getMethod().getName() + "이후 뷰 렌더링 후 실행되는 인터셉터+++++++++++++++++++");
     }
 }
 

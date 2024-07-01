@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kim.km.test01.board.service.impl.BoardMapper">
+    <insert id="insertBoard">
+        INSERT INTO b ( title, boardContents )
+        VALUES ( #{title}, #{boardContents} )
+    </insert>
+    <insert id="insertTest">
+        insert into atoz.test (name) values (#{title})
+    </insert>
+</mapper>
